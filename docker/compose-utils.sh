@@ -130,27 +130,27 @@ function additionalComposeEdqsArgs() {
 
 function permissionList() {
     PERMISSION_LIST="
-      799  799  tb-node/log
-      799  799  tb-transports/lwm2m/log
-      799  799  tb-transports/http/log
-      799  799  tb-transports/mqtt/log
-      799  799  tb-transports/snmp/log
-      799  799  tb-transports/coap/log
-      799  799  tb-vc-executor/log
-      999  999  tb-node/postgres
+      wulei  staff  tb-node/log
+      wulei  staff  tb-transports/lwm2m/log
+      wulei  staff  tb-transports/http/log
+      wulei  staff  tb-transports/mqtt/log
+      wulei  staff  tb-transports/snmp/log
+      wulei  staff  tb-transports/coap/log
+      wulei  staff  tb-vc-executor/log
+      wulei  staff  tb-node/postgres
       "
 
     source .env
 
     if [ "$DATABASE" = "hybrid" ]; then
       PERMISSION_LIST="$PERMISSION_LIST
-      999  999  tb-node/cassandra
+      wulei  staff  tb-node/cassandra
       "
     fi
 
     if [ "$EDQS_ENABLED" = true ]; then
       PERMISSION_LIST="$PERMISSION_LIST
-      799  799  edqs/log
+      wulei  staff  edqs/log
       "
     fi
 
@@ -158,7 +158,7 @@ function permissionList() {
     case $CACHE in
         valkey)
           PERMISSION_LIST="$PERMISSION_LIST
-          1001 1001 tb-node/valkey-data
+          wulei staff tb-node/valkey-data
           "
         ;;
         valkey-cluster)
